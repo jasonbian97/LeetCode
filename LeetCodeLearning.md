@@ -46,3 +46,9 @@ class Solution(object):
         return res
 ```
 
+字符串操作：
+
+1. Slice 的使用
+2. 怎样判断某一个字符是数字？间接使用ASCII
+3. 使用str.find()操作快速定位，如果没有找到，返回值为-1而不是0！！！
+
