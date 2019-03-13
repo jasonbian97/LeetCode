@@ -1,0 +1,36 @@
+class Solution(object):
+    def ReplaceString(self,i , Slist, indexes, sources, targets):
+        temp=indexes[i]
+        sourcelist=list(sources[i])
+        length=len(sourcelist)
+        for j in range(0,length):
+            if Slist[temp+j] is not sourcelist[j]:
+                return 
+        Slist[temp:temp+length]=targets[i]
+        return
+
+    def quicksort(self,indexes, sources, targets):
+        length = len(indexes)
+        for i in range(0,length-1):
+            largest = i
+            for j in range(i+1,length):
+                if indexes[j]>indexes[largest]:
+                    tmp = indexes[j]
+                    indexes[j] = indexes[largest]
+                    indexes[largest]=tmp
+                    tmp = sources[j]
+                    sources[j] = sources[largest]
+                    sources[largest]=tmp                    
+                    tmp = targets[j]
+                    targets[j] = targets[largest]
+                    targets[largest]=tmp
+                    
+    def findReplaceString(self, S, indexes, sources, targets):
+        num=len(indexes)
+        Slist=list(S)
+        Solution.quicksort(self,indexes, sources, targets)
+        for i in range(0,num):
+            Solution.ReplaceString(self,i , Slist, indexes, sources, targets)
+        return ''.join(Slist)
+
+                
